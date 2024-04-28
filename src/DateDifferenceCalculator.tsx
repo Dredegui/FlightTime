@@ -79,40 +79,44 @@ const DateDifferenceCalculator: React.FC = () => {
         // for every hour after 1900, add 1.25x
         var tempStart = new Date(startDateTime);
         var changedStart = false;
+        var reached = false;
         while (tempStart <= endDateTime) {
             if (tempStart.getHours() < 19 && tempStart.getHours() >= 6) {
                 tempStart.setHours(tempStart.getHours() + 1);
                 changedStart = true;
             } else {
                 if (changedStart) {
-                    tempStart.setHours(19);
-                    tempStart.setMinutes(0);
-                    tempStart.setSeconds(0);
+                  tempStart.setHours(19);
+                  tempStart.setMinutes(0);
+                  tempStart.setSeconds(0);
                 }
+                reached = true;
                 break;
             }
         }
-        var tempEnd = new Date(endDateTime);
-        var changedEnd = false;
-        while (tempEnd >= startDateTime) {
+        if (reached) {
+          var tempEnd = new Date(endDateTime);
+          var changedEnd = false;
+          while (tempEnd >= startDateTime) {
             if (tempEnd.getHours() < 19 && tempEnd.getHours() >= 6) {
-                tempEnd.setHours(tempEnd.getHours() - 1);
-                changedEnd = true;
+              tempEnd.setHours(tempEnd.getHours() - 1);
+              changedEnd = true;
             } else {
-                if (changedEnd) {
-                    tempEnd.setHours(6);
-                    tempEnd.setMinutes(0);
-                    tempEnd.setSeconds(0);
-                }
-                break;
+              if (changedEnd) {
+                tempEnd.setHours(6);
+                tempEnd.setMinutes(0);
+                tempEnd.setSeconds(0);
+              }
+              break;
             }
+          }
+          console.log("tempStart: " + tempStart);
+          console.log("tempEnd: " + tempEnd);
+          const blockPayTime = Math.abs(tempEnd.getTime() - tempStart.getTime()) / 1000
+          console.log("blockPayTime: " + blockPayTime);
+          console.log("differenceInSeconds: " + differenceInSeconds);
+          differenceInSeconds = differenceInSeconds - blockPayTime + (blockPayTime * 1.25); 
         }
-        console.log("tempStart: " + tempStart);
-        console.log("tempEnd: " + tempEnd);
-        const blockPayTime = Math.abs(tempEnd.getTime() - tempStart.getTime()) / 1000
-        console.log("blockPayTime: " + blockPayTime);
-        console.log("differenceInSeconds: " + differenceInSeconds);
-        differenceInSeconds = differenceInSeconds - blockPayTime + (blockPayTime * 1.25); 
         const hours = Math.floor(differenceInSeconds / 3600);
         differenceInSeconds -= hours * 3600;
         const minutes = Math.floor(differenceInSeconds / 60);
