@@ -164,37 +164,55 @@ const DateDifferenceCalculator: React.FC = () => {
   };
 
   return (
-    <div>
-      <label>Start Date and Time: </label>
-      <input type="text" value={startAir} onChange={handleStartAirChange} />
-      <input type="datetime-local" value={startDate} onChange={handleStartDateChange} />
-      <br />
-      <label>End Date and Time: </label>
-      <input type="text" value={endAir} onChange={handleEndAirChange} />
-      <input type="datetime-local" value={endDate} onChange={handleEndDateChange} />
-      <br />
-      <button onClick={calculateDifference}>Block Time</button>
-      <br />
-      {differenceHours !== null && differenceMinutes !== null && differenceSeconds !== null && (
+    <div className="main">
+      <div className="container">
         <div>
-          <label>Hours: {differenceHours}</label>
-          <br />
-          <label>Minutes: {differenceMinutes}</label>
-          <br />
-          <label>Seconds: {differenceSeconds}</label>
+          <label>Start Airport: </label>
+          <input type="text" value={startAir} onChange={handleStartAirChange} />
         </div>
-      )}
-      <button onClick={calculateBlockPay}>Block Pay</button>
-      <br />
-      {blockPayHours !== null && blockPayMinutes !== null && blockPaySeconds !== null && (
-          <div>
-          <label>Hours: {blockPayHours}</label>
+        <div>
+          <label>Start Date and Time: </label>
+          <input type="datetime-local" value={startDate} onChange={handleStartDateChange} />
+        </div>
+      </div>
+      <div className="container">
+        <div>
+          <label>End Airport: </label>
+          <input type="text" value={endAir} onChange={handleEndAirChange} />
+        </div>
+        <div>
+          <label>End Date and Time: </label>
+          <input type="datetime-local" value={endDate} onChange={handleEndDateChange} />
+        </div>
+      </div>
+      <div className="buttons">
+        <div>
+          <button onClick={calculateDifference}>Block Time</button>
           <br />
-          <label>Minutes: {blockPayMinutes}</label>
+          {differenceHours !== null && differenceMinutes !== null && differenceSeconds !== null && (
+            <div>
+              <label>Hours: {differenceHours}</label>
+              <br />
+              <label>Minutes: {differenceMinutes}</label>
+              <br />
+              <label>Seconds: {differenceSeconds}</label>
+            </div>
+          )}
+        </div>
+        <div>
+          <button onClick={calculateBlockPay}>Block Pay</button>
           <br />
-          <label>Seconds: {blockPaySeconds}</label>
-          </div>
-      )}
+          {blockPayHours !== null && blockPayMinutes !== null && blockPaySeconds !== null && (
+            <div>
+              <label>Hours: {blockPayHours}</label>
+              <br />
+              <label>Minutes: {blockPayMinutes}</label>
+              <br />
+              <label>Seconds: {blockPaySeconds}</label>
+              </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
