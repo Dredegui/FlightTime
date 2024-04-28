@@ -1,9 +1,9 @@
 {
+  "homepage": "https://dredegui.github.io/FlightTime",
   "name": "flighttime",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dredegui.github.io/FlightTime",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
