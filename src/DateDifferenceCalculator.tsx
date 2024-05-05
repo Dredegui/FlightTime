@@ -178,7 +178,7 @@ const DateDifferenceCalculator: React.FC = () => {
           </select> 
         </div>
         <div>
-          <label>Start Date and Time: </label>
+          <label>Start Date - Time: </label>
           <input type="datetime-local" value={startDate} onChange={handleStartDateChange} />
         </div>
       </div>
@@ -192,7 +192,7 @@ const DateDifferenceCalculator: React.FC = () => {
           </select>
         </div>
         <div>
-          <label>End Date and Time: </label>
+          <label>End Date - Time: </label>
           <input type="datetime-local" value={endDate} onChange={handleEndDateChange} />
         </div>
       </div>
