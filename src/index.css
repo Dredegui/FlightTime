@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 .main {
@@ -20,6 +21,7 @@
   justify-content: center;
   height: 100%;
 }
+
 
 .buttons {
   display: flex;
@@ -48,12 +50,13 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  max-width: 100%;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
