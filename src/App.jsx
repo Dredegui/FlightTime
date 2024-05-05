@@ -9,8 +9,8 @@ function App() {
   /* returns a home page that takes two dates with respective time and timezones and returns the difference */
   return (
     <>
-      <div>
-        <h1>FlightTimeCalculator</h1>
+      <div className='App'>
+        <h1>BlockPayCalculator</h1>
         <p>Calculate the time between two dates</p>
         <DateDifferenceCalculator />
       </div>
