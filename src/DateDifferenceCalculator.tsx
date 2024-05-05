@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { start } from 'repl';
 
 const DateDifferenceCalculator: React.FC = () => {
   const [startDate, setStartDate] = useState<string>('');
@@ -45,11 +44,11 @@ const DateDifferenceCalculator: React.FC = () => {
     setEndDate(event.target.value);
   };
 
-  const handleStartAirChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleStartAirChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStartAir(event.target.value);
   };
 
-    const handleEndAirChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEndAirChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setEndAir(event.target.value);
     };
 
@@ -172,7 +171,11 @@ const DateDifferenceCalculator: React.FC = () => {
       <div className="container">
         <div>
           <label>Start Airport: </label>
-          <input type="text" value={startAir} onChange={handleStartAirChange} />
+          <select value={startAir} onChange={handleStartAirChange}>
+            {Object.keys(map).map((airport) => (
+              <option key={airport} value={airport}>{airport}</option>
+            ))}
+          </select> 
         </div>
         <div>
           <label>Start Date and Time: </label>
@@ -182,7 +185,11 @@ const DateDifferenceCalculator: React.FC = () => {
       <div className="container">
         <div>
           <label>End Airport: </label>
-          <input type="text" value={endAir} onChange={handleEndAirChange} />
+          <select value={endAir} onChange={handleEndAirChange}>
+            {Object.keys(map).map((airport) => (
+              <option key={airport} value={airport}>{airport}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label>End Date and Time: </label>
