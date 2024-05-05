@@ -2,40 +2,40 @@ import React, { useState } from 'react';
 
 const DateDifferenceCalculator: React.FC = () => {
   const [startDate, setStartDate] = useState<string>('');
-  const [startAir, setStartAir] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
-  const [endAir, setEndAir] = useState<string>('');
   const [differenceHours, setDifferenceHours] = useState<number | null>(null);
   const [differenceMinutes, setDifferenceMinutes] = useState<number | null>(null);
   const [differenceSeconds, setDifferenceSeconds] = useState<number | null>(null);
   const [blockPayHours, setBlockPayHours] = useState<number | null>(null);
   const [blockPayMinutes, setBlockPayMinutes] = useState<number | null>(null);
   const [blockPaySeconds, setBlockPaySeconds] = useState<number | null>(null);
-
+  
   // map of strings to integers
-    const map = {
-        'LIS': 0,
-        'OPO': 0,
-        'FNC': 0,
-        'REC': -4,
-        'SSA': -4,
-        'GIG': -4,
-        'GRU': -4,
-        'CNF': -4,
-        'FOR': -4,
-        'BSB': -4,
-        'POA': -4,
-        'CUN': -5,
-        'CCS': -5,
-        'EWR': -5,
-        'JFK': -5,
-        'MIA': -5,
-        'IAD': -6,
-        'SFO': -6,
-        'LAD': 0,
-        'MPM': 1
-    };
+  const map = {
+      'LIS': 0,
+      'OPO': 0,
+      'FNC': 0,
+      'REC': -4,
+      'SSA': -4,
+      'GIG': -4,
+      'GRU': -4,
+      'CNF': -4,
+      'FOR': -4,
+      'BSB': -4,
+      'POA': -4,
+      'CUN': -5,
+      'CCS': -5,
+      'EWR': -5,
+      'JFK': -5,
+      'MIA': -5,
+      'IAD': -6,
+      'SFO': -6,
+      'LAD': 0,
+      'MPM': 1
+  };
 
+  const [startAir, setStartAir] = useState("LIS"); // default to "LIS"
+  const [endAir, setEndAir] = useState("LIS"); // default to "LIS"
   const handleStartDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(event.target.value);
   };
